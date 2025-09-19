@@ -4,7 +4,10 @@ class terning {
     this.x = x;
     this.y = y;
   }
+ Pointskema
   draw() {}
+=======
+ main
 
   roll() {
     if ((this.number = 0)) {
