@@ -3,19 +3,29 @@ class Terning {
     this.number = number;
     this.x = x;
     this.y = y;
-    this.vx = random(-1, 1);
-    this.vy = random(-1, 1);
+    this.vx = random(-2, 2);
+    this.vy = random(-2, 2);
     this.size = size;
   }
 
   roll() {
-    if ((this.number = 0)) {
-      this.number = floor(random(1, 6));
+    if (this.number == 0) {
+      this.number = floor(random(1, 7));
     }
   }
 
   show() {
-    circle(this.x, this.y, this.size);
+    stroke(0);
+    fill(255);
+    rect(this.x, this.y, this.size, this.size, 6);
+    fill(0);
+    noStroke();
+    textSize(this.size * 0.5);
+    text(this.number, this.x + this.size / 3, this.y + this.size / 1.5);
+  }
+
+  showMoving() {
+    image(rollingDice, this.x - 8, this.y - 8, this.size + 16, this.size + 16);
   }
 
   move() {
@@ -24,7 +34,7 @@ class Terning {
   }
 
   wall() {
-    if (this.x >= width - this.size / 2) {
+    if (this.x >= width / 2 - this.size / 2) {
       this.vx = this.vx * -1;
     }
     if (this.y >= height - this.size / 2) {
