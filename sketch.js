@@ -2,9 +2,11 @@ let terningearray = [];
 let rollTime = Date.now();
 let rolltrue = false;
 let rollingDice;
+let rollKnap;
 
 function preload() {
   rollingDice = loadImage("dice-game.gif");
+  rollKnap = loadImage("roll 1.png");
 }
 
 function setup() {
@@ -45,21 +47,16 @@ function terningerMove() {
     terning.move();
     terning.wall();
     terning.showMoving();
+    terning.buttonWall();
   }
 }
 
 function rollKnapDraw() {
-  fill(255);
-  stroke(0);
-  rect(0, 0, 50, 20);
-  noStroke();
-  fill(0);
-  textSize(12);
-  text("Roll", 25, 10);
+  image(rollKnap, 10, 10, 80, 80);
 }
 
 function rollPressed() {
-  if (mouseX < 50 && mouseX > 0 && mouseY < 20 && mouseY > 0) {
+  if (mouseX < 85 && mouseX > 5 && mouseY < 90 && mouseY > 10) {
     rolltrue = true;
     rollTime = Date.now();
     for (terning of terningearray) {

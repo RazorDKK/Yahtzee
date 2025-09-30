@@ -34,6 +34,18 @@ class Terning {
     this.y = this.y + this.vy;
   }
 
+  buttonWall() {
+    if (
+      this.x < 90 &&
+      this.x + this.size > 10 &&
+      this.y < 90 &&
+      this.y + this.size > 10
+    ) {
+      this.vx *= -1;
+      this.vy *= -1;
+    }
+  }
+
   wall() {
     if (this.x >= width / 2 - this.size) {
       this.vx = this.vx * -1;
