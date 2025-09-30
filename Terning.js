@@ -1,15 +1,16 @@
 class Terning {
   constructor(number, x, y, size) {
-    this.number = number;
+    this.chosen = number;
     this.x = x;
     this.y = y;
     this.vx = random(-2, 2);
     this.vy = random(-2, 2);
     this.size = size;
+    this.number;
   }
 
   roll() {
-    if (this.number == 0) {
+    if (this.chosen == 0) {
       this.number = floor(random(1, 7));
     }
   }
@@ -34,16 +35,16 @@ class Terning {
   }
 
   wall() {
-    if (this.x >= width / 2 - this.size / 2) {
+    if (this.x >= width / 2 - this.size) {
       this.vx = this.vx * -1;
     }
-    if (this.y >= height - this.size / 2) {
+    if (this.y >= height / 2 - this.size) {
       this.vy = this.vy * -1;
     }
-    if (this.x <= this.size / 2) {
+    if (this.x <= 0) {
       this.vx = this.vx * -1;
     }
-    if (this.y <= this.size / 2) {
+    if (this.y <= 0) {
       this.vy = this.vy * -1;
     }
   }
