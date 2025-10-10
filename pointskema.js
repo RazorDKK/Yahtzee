@@ -36,11 +36,18 @@ class pointskema {
   }
 
   check() {
+    console.log(this.number);
     this.number.sort();
+    console.log(this.number);
+
     if (this.player1 === true) {
       this.muligpoint = this.mpoint1;
     } else {
       this.muligpoint = this.mpoint2;
+    }
+
+    for (let i = 0; i < this.muligpoint.length; i++) {
+      this.muligpoint[i] = 0;
     }
 
     // checker 1'er 2'er 3'er 4'er 5'er 6'er
@@ -121,7 +128,8 @@ class pointskema {
 
   draw() {
     let offsetX = width - this.width; // shift table to right side
-
+    fill(200);
+    stroke(1);
     // draw grid
     for (let i = 0; i < 14; i++) {
       for (let j = 0; j < 3; j++) {
@@ -133,7 +141,8 @@ class pointskema {
         );
       }
     }
-
+    noStroke();
+    fill(0);
     // draw text
     textAlign(CENTER, CENTER);
     for (let j = 0; j < this.cols.length; j++) {

@@ -11,9 +11,8 @@ function preload() {
 }
 function setup() {
   createCanvas(600, 800);
-  mySkema = new pointskema(1, 2, 3, 4, 5, 1);
-  mySkema.check();
   terningCreate();
+  mySkema = new pointskema(1, 2, 3, 4, 5, 1);
 }
 
 function draw() {
@@ -67,6 +66,7 @@ function rollPressed() {
       terning.vy = random(-2, 2);
     }
   }
+  console.log(pointskema.number);
 }
 
 function rollingFunc() {
@@ -74,9 +74,12 @@ function rollingFunc() {
     terningerMove();
   } else {
     rolltrue = false;
-    for (let t of terningearray) {
+    for (let i = 0; i < terningearray.length; i++) {
+      let t = terningearray[i];
       t.roll();
+      mySkema.number[i] = t.number;
     }
+    mySkema.check();
   }
 }
 
